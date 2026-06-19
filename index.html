@@ -1,9 +1,18 @@
 <!DOCTYPE html> 
-    <html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بوابة كسلا السياحية</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="بوابة كسلا السياحية - اكتشف أجمل المعالم السياحية في كسلا السودان: جبل توتيل، نهر القاش، منتجعات فندقية، وتراث حضاري عريق. معلومات سياحية شاملة وآراء الزوار.">
+    <meta name="keywords" content="كسلا, السودان, السياحة, جبل توتيل, نهر القاش, منتجعات سياحية, سياحة شرق السودان, معالم سياحية">
+    <meta name="author" content="Maher Ibrahim">
+    <meta property="og:title" content="بوابة كسلا السياحية - اكتشف مدينة كسلا">
+    <meta property="og:description" content="موقع سياحي شامل لمدينة كسلا بمعلومات عن المعالم والمنتجعات والتراث">
+    <meta property="og:image" content="images/totil2.png">
+    
     <style>
         /* --- تنسيقات CSS الأساسية --- */
         * {
@@ -21,21 +30,24 @@
 
         /* الهيدر (رأس الصفحة) */
         header {
-            background-image:url("images/totil2.png");
+            background-image: url("images/totil2.png");
             background-size: cover; 
+            background-position: center;
             text-align: center;
             padding: 100px 20px;
-            
         }
 
         header h1 {
             font-size: 3rem;
             margin-bottom: 10px;
-            color: #ffcc00; /* لون ذهبي يعكس طبيعة كسلا */
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         header p {
             font-size: 1.2rem;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
         /* القائمة العلوية للتنقل */
@@ -44,21 +56,29 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            text-align: center;
+        }
+
+        nav > div {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         nav a {
             display: inline-block;
-            color: rgb(252, 245, 245);
+            color: white;
             padding: 15px 20px;
             text-decoration: none;
             font-weight: bold;
             transition: 0.3s;
+            border-bottom: 3px solid transparent;
         }
 
         nav a:hover {
             background-color: #18bc9c;
-            color: rgb(73, 7, 7);
+            border-bottom-color: #ffcc00;
         }
 
         /* الحاوية الرئيسية للمحتوى */
@@ -74,6 +94,7 @@
             margin-bottom: 40px;
             position: relative;
             color: #242729;
+            font-size: 2rem;
         }
 
         .section-title::after {
@@ -100,11 +121,11 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(36, 29, 29, 0.1);
             transition: transform 0.3s;
-            font-weight: bold;
         }
 
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(36, 29, 29, 0.2);
         }
 
         .card-img {
@@ -116,9 +137,13 @@
             justify-content: center;
             color: #221b1b;
             font-weight: bold;
-            /* استبدل هذه الخلفية بصور حقيقية لاحقاً */
             background-image: linear-gradient(45deg, #18bc9c, #2c3e50);
-            font-weight: bold;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .card-content {
@@ -129,11 +154,67 @@
             margin-bottom: 10px;
             color: #2c3e50;
             font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .card-content p {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .card-buttons {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-details {
+            background: #18bc9c;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-details:hover {
+            background: #14a085;
+        }
+
+        .btn-share {
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            display: inline-block;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn-share:hover {
+            opacity: 0.8;
+        }
+
+        .btn-facebook {
+            background: #3b5998;
+        }
+
+        .btn-twitter {
+            background: #1DA1F2;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
         }
 
         /* قسم التقييمات والمراجعات */
         .review-card {
-            background:white;
+            background: white;
             border-right: 5px solid #ffcc00;
             padding: 15px;
             margin-bottom: 15px;
@@ -144,6 +225,7 @@
         .stars {
             color: #ffcc00;
             margin-bottom: 5px;
+            font-size: 1.1rem;
         }
 
         .reviewer {
@@ -151,6 +233,74 @@
             color: #160808;
             margin-top: 5px;
             display: block;
+            font-weight: bold;
+        }
+
+        /* قسم التواصل */
+        #contact {
+            background: #f9f9f9;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .form-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #18bc9c;
+            box-shadow: 0 0 5px rgba(24, 188, 156, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .submit-btn {
+            background: #18bc9c;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #14a085;
         }
 
         /* الفوتر (أسفل الصفحة) */
@@ -161,92 +311,222 @@
             padding: 20px;
             margin-top: 40px;
         }
+
+        /* زر الرجوع للأعلى */
+        a.back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #18bc9c;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 24px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            z-index: 999;
+        }
+
+        a.back-to-top:hover {
+            opacity: 1;
+        }
+
+        /* الاستجابة للأجهزة الصغيرة */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            nav a {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-buttons {
+                flex-direction: column;
+            }
+
+            .btn-share {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
-
-    <!-- أسطر التهيئة لمحركات البحث (SEO) لتسريع الظهور في قوقل -->
-<meta name="description" content="منصة كسلا السياحية - استكشف معالم مدينة كسلا الجميلة، جبل توتيل، نهر القاش، وجنان السواقي.">
-<meta name="keywords" content="كسلا, منصة كسلا السياحية, جبل توتيل, نهر القاش, السواقي الجنوبية, سياحة السودان, Kassala Tourism">
-<meta name="author" content="Maher Ibrahim">
-
 </head>
 <body>
 
+    <!-- الرأس (Header) -->
     <header>
         <h1>كسلا الجميلة</h1>
         <p>اكتشف الطبيعة الساحرة، التاريخ العريق، والمنتجعات السياحية في قلب شرق السودان</p>
     </header>
 
+    <!-- القائمة العلوية للتنقل -->
     <nav>
-        <a href="#nature">المواقع الطبيعية</a>
-        <a href="#history">المواقع التاريخية</a>
-        <a href="#resorts">المنتجعات والفنادق</a>
+        <div>
+            <a href="#nature">🏔️ المواقع الطبيعية</a>
+            <a href="#history">🕌 المواقع التاريخية</a>
+            <a href="#resorts">🏨 المنتجعات والفنادق</a>
+            <a href="#contact">📧 تواصل معنا</a>
+        </div>
     </nav>
 
+    <!-- المحتوى الرئيسي -->
     <div class="container">
 
+        <!-- قسم المواقع الطبيعية -->
         <section id="nature">
-            <h2 class="section-title">المواقع الطبيعية والساحرة</h2>
+            <h2 class="section-title">🏔️ المواقع الطبيعية والساحرة</h2>
             <div class="grid">
                  
                 <div class="card">
-                    <div class="card-img" >
-                        <img src="images/totil3.jpg" alt="توتيل" style="width: 100%; height: 100%; object-fit:cover;">
-                        </div>
-
+                    <div class="card-img">
+                        <img src="images/totil3.jpg" alt="جبل توتيل">
+                    </div>
+                    <div class="card-content">
                         <h3>جبل توتيل وجبال التاكا</h3>
-                        <p>أيقونة مدينة كسلا الشهيرة، حيث الطبيعة الجبلية الساحرة ومقاهي القهوة (الجبنة) التقليدية عند سفح الجبل الرائع.</p>
-                         <a href="totil.html" class="btn-details">عرض التفاصيل</a>
+                        <p>
+                            جبل توتيل هو الرمز الأيقوني لمدينة كسلا ويعتبر من أشهر المعالم السياحية في شرق السودان. 
+                            يتميز بقمته الشاهقة التي توفر إطلالات بانورامية خاصة على المدينة والمناطق المحيطة بها. 
+                            يقصده السياح بكثرة للاستمتاع بالطبيعة الجبلية الخلابة والمقاهي التقليدية (الجبنة) المنتشرة على سفحه. 
+                            مثالي للرحلات العائلية والتصوير الفوتوغرافي خاصة وقت الغروب.
+                        </p>
+                        <div class="card-buttons">
+                            <a href="totil.html" class="btn-details">📖 اقرأ المزيد</a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn-share btn-facebook">📘 فيس</a>
+                            <a href="https://twitter.com/intent/tweet?text=جبل%20توتيل%20من%20أيقونات%20كسلا&url=https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn-share btn-twitter">🐦 تويتر</a>
+                        </div>
                     </div>
                 </div>
             
-              
-                
-               
-               
-                <section id="history">
-            <h2 class="section-title">المراق التاريخية والدينية</h2>
-            <div class="grid">
                 <div class="card">
-                    <div class="card-img" >
-                        <img src="images/gash.jpg" alt="توتيل" style="width: 100%; height: 100%; object-fit:cover;">
-                        </div>
+                    <div class="card-img">
+                        <img src="images/gash.jpg" alt="نهر القاش">
                     </div>
                     <div class="card-content">
-                        <h3>مسجد وضريح الختمية</h3>
-                        <p>تحفة معمارية تاريخية تقع عند أسفل جبل التاكا، وتعتبر من أهم المعالم الدينية والأثرية في شرق السودان.</p>
-                         <a href="drih.html" class="btn-details">عرض التفاصيل</a>
+                        <h3>نهر القاش الموسمي</h3>
+                        <p>
+                            نهر القاش يعتبر من الثروات الطبيعية الفريدة في كسلا، يتدفق موسمياً ليروي أرض كسلا الطيبة 
+                            ويضفي بهجة خاصة على المدينة خلال فترة الفيضان. المنطقة المحيطة به توفر مناظر طبيعية ساحرة 
+                            وفرص للاستكشاف والتنزه. مشهور بين السياح للاستمتاع بجمال الطبيعة والهدوء.
+                        </p>
+                        <div class="card-buttons">
+                            <a href="drih.html" class="btn-details">📖 اقرأ المزيد</a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn-share btn-facebook">📘 فيس</a>
+                            <a href="https://wa.me/?text=اكتشف%20نهر%20القاش%20في%20كسلا%20https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn-share btn-whatsapp">💬 واتس</a>
+                        </div>
                     </div>
                 </div>
 
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/drih.png" alt="الختمية">
+                    </div>
+                    <div class="card-content">
+                        <h3>جنان السواقي والبساتين</h3>
+                        <p>
+                            المساحات الخضراء الممتدة وسط مدينة كسلا تشتهر بإنتاج أجود أنواع المانجو والجريب فروت 
+                            والرمان والعنب. تعتبر هذه البساتين من أهم المصادر الاقتصادية للمدينة وتجذب الزوار للاستمتاع 
+                            بالجو الريفي الهادئ والطبيعة الخضراء الجميلة. زيارة مثالية في فصل الربيع والصيف.
+                        </p>
+                        <div class="card-buttons">
+                            <a href="bstan.html" class="btn-details">📖 اقرأ المزيد</a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn-share btn-facebook">📘 فيس</a>
+                            <a href="https://twitter.com/intent/tweet?text=البساتين%20الخضراء%20في%20كسلا&url=https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn-share btn-twitter">🐦 تويتر</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- قسم المواقع التاريخية والدينية -->
         <section id="history">
-            <h2 class="section-title">المراق التاريخية والدينية</h2>
+            <h2 class="section-title">🕌 المواقع التاريخية والدينية</h2>
             <div class="grid">
                 <div class="card">
-                    <div class="card-img" >
-                        <img src="images/drih.png" alt="توتيل" style="width: 100%; height: 100%; object-fit:cover;">
-                        </div>
+                    <div class="card-img">
+                        <img src="images/drih.png" alt="مسجد الختمية">
                     </div>
                     <div class="card-content">
                         <h3>مسجد وضريح الختمية</h3>
-                        <p>تحفة معمارية تاريخية تقع عند أسفل جبل التاكا، وتعتبر من أهم المعالم الدينية والأثرية في شرق السودان.</p>
-                         <a href="drih.html" class="btn-details">عرض التفاصيل</a>
+                        <p>
+                            تحفة معمارية تاريخية تقع عند أسفل جبل التاكا، وتعتبر من أهم المعالم الدينية والأثرية في شرق السودان. 
+                            يتميز المسجد بعمارته الإسلامية الأصيلة ويجذب الحجاج والسياح من مختلف أنحاء العالم. 
+                            المكان يتمتع بأهمية دينية وتاريخية كبيرة ويعكس التراث الثقافي العريق لمدينة كسلا.
+                        </p>
+                        <div class="card-buttons">
+                            <a href="drih.html" class="btn-details">📖 اقرأ المزيد</a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn-share btn-facebook">📘 فيس</a>
+                            <a href="https://wa.me/?text=زر%20مسجد%20الختمية%20في%20كسلا%20https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn-share btn-whatsapp">💬 واتس</a>
+                        </div>
                     </div>
                 </div>
                
-             
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/totil.png" alt="السوق الشعبي">
+                    </div>
+                    <div class="card-content">
+                        <h3>السوق الشعبي وثقافة كسلا</h3>
+                        <p>
+                            المكان الأمثل للتعرف على تراث أهل كسلا الأصيل، حيث يمكنك شراء المصنوعات اليدوية المحلية 
+                            والملابس التقليدية والحرف اليدوية. السوق ينبض بالحياة والحركة ويعكس الثقافة السودانية الأصيلة 
+                            والتقاليد المحلية. تجربة ثقافية غنية لا تنسى تأخذك في رحلة عبر التراث والتاريخ.
+                        </p>
+                        <div class="card-buttons">
+                            <a href="totil.html" class="btn-details">📖 اقرأ المزيد</a>
+                            <a href="https://twitter.com/intent/tweet?text=اكتشف%20السوق%20الشعبي%20في%20كسلا&url=https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn-share btn-twitter">🐦 تويتر</a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn-share btn-facebook">📘 فيس</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- قسم المنتجعات السياحية -->
         <section id="resorts">
-            <h2 class="section-title">المنتجعات السياحية وأماكن الإقامة</h2>
+            <h2 class="section-title">🏨 المنتجعات السياحية وأماكن الإقامة</h2>
             <div class="grid">
                 
                 <div class="card">
                     <div class="card-img">
-                        <img src="images/bstn4.png" alt="توتيل" style="width: 100%; height: 100%; object-fit:cover;">
-                    </div> 
+                        <img src="images/bstn4.png" alt="منتجع البستان السياحي">
+                    </div>
                     <div class="card-content">
                         <h3>منتجع البستان السياحي</h3>
-                        <p>يقع في وسط المدينة ويتميز بحدائقه الغناء وجلساته العائلية الهادئة وخدماته الممتازة للزوار.</p>
-                         <a href="bstan.html" class="btn-details">عرض التفاصيل</a>
+                        <p>
+                            يقع في وسط المدينة ويتميز بحدائقه الغناء وجلساته العائلية الهادئة وخدماته الممتازة للزوار. 
+                            المنتجع يوفر أجواء هادئة وآمنة للعائلات مع مرافق حديثة وخدمات فندقية راقية. 
+                            موقعه المميز يجعله خيار مثالي للاستمتاع بوقت ممتع مع العائلة والأصدقاء.
+                        </p>
                         <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
                         <h4>آراء وتقييمات الزوار:</h4>
                         <div class="review-card">
@@ -254,17 +534,25 @@
                             <p>"المكان روعة وهادئ جداً، والخدمة ممتازة، ومناسب جداً للعائلات."</p>
                             <span class="reviewer">- أحمد علي (زائر)</span>
                         </div>
+                        <div class="card-buttons">
+                            <a href="bstan.html" class="btn-details">📖 اقرأ المزيد</a>
+                            <a href="https://wa.me/?text=منتجع%20البستان%20السياحي%20في%20كسلا%20https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn-share btn-whatsapp">💬 واتس</a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-img">
-                        <img src="images/waha4.png" alt="توتيل" style="width: 100%; height: 100%; object-fit:cover;">
+                        <img src="images/waha4.png" alt="منتجع الواحة">
                     </div>
                     <div class="card-content">
                         <h3>منتجع الواحة</h3>
-                        <p>يقدم تجربة ترفيهية متكاملة لرواد المدينة مع إطلالات جميلة وخدمات فندقية مريحة.</p>
-                         <a href="waha.html" class="btn-details">عرض التفاصيل</a>
+                        <p>
+                            يقدم تجربة ترفيهية متكاملة لرواد المدينة مع إطلالات جميلة وخدمات فندقية مريحة وحديثة. 
+                            المنتجع يوفر جو من الهدوء والراحة مع مرافق ممتازة للاستجمام والاسترخاء. 
+                            خيار رائع للزوار الذين يبحثون عن تجربة فندقية مميزة وخدمات عالية الجودة.
+                        </p>
                         <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
                         <h4>آراء وتقييمات الزوار:</h4>
                         <div class="review-card">
@@ -272,42 +560,87 @@
                             <p>"إطلالة جميلة جداً والموقع قريب من الخدمات، تجربة تستحق التكرار."</p>
                             <span class="reviewer">- منى محمد (زائرة)</span>
                         </div>
+                        <div class="card-buttons">
+                            <a href="waha.html" class="btn-details">📖 اقرأ المزيد</a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn-share btn-facebook">📘 فيس</a>
+                        </div>
                     </div>
                 </div>
 
-            </div>
-           
-       
-        
-          <div class="card">
+                <div class="card">
                     <div class="card-img">
-                      
-                        <img src="images/city.png" alt="توتيل" style="width: 100%; height: 100%; object-fit:cover;">
-                    </div> 
+                        <img src="images/city.png" alt="منتجع وسط المدينة">
+                    </div>
                     <div class="card-content">
                         <h3>منتجع وسط المدينة</h3>
-                        <p>يقدم تجربة ترفيهية متكاملة لرواد المدينة مع إطلالات جميلة وخدمات فندقية مريحة.</p>
-                         <a href="https://www.aljazeera.net/misc/2017/5/19/%D8%AA%D9%88%D8%AA%D9%8A%D9%84-%D8%AC%D8%A8%D9%84-%D8%A7%D9%84%D8%AD%D8%A8-%D9%88%D8%A7%D9%84%D8%A8%D8%B1%D9%83%D8%A7%D8%AA-%D8%A8%D8%B4%D8%B1%D9%82-%D8%A7%D9%84%D8%B3%D9%88%D8%AF%D8%A7%D9%86" class="btn-details">عرض التفاصيل</a>
+                        <p>
+                            يقدم تجربة ترفيهية متكاملة لرواد المدينة مع إطلالات جميلة وخدمات فندقية مريحة. 
+                            الموقع الاستراتيجي في وسط المدينة يجعله قريب من جميع الخدمات والمعالم السياحية. 
+                            خيار مثالي للزوار الذين يريدون الاستمتاع بكل ما تقدمه المدينة.
+                        </p>
                         <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
                         <h4>آراء وتقييمات الزوار:</h4>
                         <div class="review-card">
                             <div class="stars">⭐⭐⭐⭐☆</div>
-                            <p>"إطلالة جميلة جداً والموقع قريب من الخدمات، تجربة تستحق التكرار."</p>
-                            <span class="reviewer">- منى محمد (زائرة)</span>
+                            <p>"الموقع ممتاز جداً والموظفون ودودون والأسعار معقولة جداً."</p>
+                            <span class="reviewer">- سارة محمود (زائرة)</span>
+                        </div>
+                        <div class="card-buttons">
+                            <a href="https://wa.me/?text=منتجعات%20كسلا%20السياحية%20https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn-share btn-whatsapp">💬 واتس</a>
+                            <a href="https://twitter.com/intent/tweet?text=منتجعات%20كسلا%20الرائعة&url=https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn-share btn-twitter">🐦 تويتر</a>
                         </div>
                     </div>
                 </div>
 
             </div>
+        </section>
 
-
+        <!-- قسم التواصل -->
+        <section id="contact">
+            <h2 class="section-title">📧 تواصل معنا</h2>
+            <div class="form-wrapper">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    
+                    <div class="form-group">
+                        <label for="name">اسمك</label>
+                        <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" placeholder="بريدك الإلكتروني" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">الموضوع</label>
+                        <input type="text" id="subject" name="subject" placeholder="موضوع الرسالة" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">الرسالة</label>
+                        <textarea id="message" name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">إرسال الرسالة 📤</button>
+                </form>
+            </div>
         </section>
 
     </div>
 
+    <!-- الفوتر -->
     <footer>
-        <p>جميع الحقوق محفوظة © بوابة كسلا السياحية - تصميم وتطوير باشمهندس المستقبل</p>
+        <p>جميع الحقوق محفوظة © بوابة كسلا السياحية - تصميم وتطوير Maher Ibrahim</p>
+        <p style="font-size: 0.9rem; margin-top: 10px; color: #aaa;">
+            📍 كسلا - شرق السودان | 📞 للتواصل: contact@kassala-tourism.com
+        </p>
     </footer>
+
+    <!-- زر الرجوع للأعلى -->
+    <a href="#" class="back-to-top">⬆️</a>
 
 </body>
 </html>

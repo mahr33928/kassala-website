@@ -40,12 +40,12 @@
         header h1 {
             font-size: 3rem;
             margin-bottom: 10px;
-            color: #ffcc00;
+            color: rgb(255, 255, 255);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         header p {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: white;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
@@ -170,46 +170,158 @@
             flex-wrap: wrap;
         }
 
-        .btn-details {
-            background: #18bc9c;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 4px;
+        /* ===== تحسينات الأزرار التفاعلية ===== */
+        .btn {
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-            display: inline-block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            color: white;
+            letter-spacing: 0.3px;
+        }
+
+        .btn .icon {
+            font-size: 1.2rem;
+            line-height: 1;
+            transition: transform 0.2s ease;
+        }
+
+        /* تأثير hover و active */
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:hover .icon {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* زر التفاصيل */
+        .btn-details {
+            background: linear-gradient(135deg, #18bc9c, #14a085);
+            color: white;
         }
 
         .btn-details:hover {
-            background: #14a085;
+            background: linear-gradient(135deg, #1dd2af, #16a085);
         }
 
-        .btn-share {
-            padding: 8px 15px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: 0.3s;
-            display: inline-block;
-            color: white;
-            font-weight: bold;
-        }
-
-        .btn-share:hover {
-            opacity: 0.8;
-        }
-
+        /* أزرار المشاركة */
         .btn-facebook {
-            background: #3b5998;
+            background: #1877f2;
+        }
+        .btn-facebook:hover {
+            background: #1464d4;
         }
 
         .btn-twitter {
-            background: #1DA1F2;
+            background: #000000;
+        }
+        .btn-twitter:hover {
+            background: #1a1a1a;
         }
 
         .btn-whatsapp {
-            background: #25D366;
+            background: #25d366;
+        }
+        .btn-whatsapp:hover {
+            background: #1da85c;
+        }
+
+        /* زر الإرسال */
+        .submit-btn {
+            background: linear-gradient(135deg, #18bc9c, #14a085);
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(24, 188, 156, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(24, 188, 156, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: scale(0.96);
+        }
+
+        .submit-btn .icon {
+            font-size: 1.3rem;
+        }
+
+        /* زر الرجوع للأعلى */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #18bc9c, #14a085);
+            color: white;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 24px;
+            box-shadow: 0 4px 16px rgba(24, 188, 156, 0.35);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(24, 188, 156, 0.5);
+        }
+
+        .back-to-top:active {
+            transform: scale(0.9);
+        }
+
+        /* ===== تأثير الموجة (Ripple) عند النقر ===== */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.45);
+            transform: scale(0);
+            animation: ripple-anim 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-anim {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
         }
 
         /* قسم التقييمات والمراجعات */
@@ -286,23 +398,6 @@
             height: 120px;
         }
 
-        .submit-btn {
-            background: #18bc9c;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 1rem;
-            width: 100%;
-            transition: 0.3s;
-        }
-
-        .submit-btn:hover {
-            background: #14a085;
-        }
-
         /* الفوتر (أسفل الصفحة) */
         footer {
             background-color: #2c3e50;
@@ -310,30 +405,6 @@
             text-align: center;
             padding: 20px;
             margin-top: 40px;
-        }
-
-        /* زر الرجوع للأعلى */
-        a.back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #18bc9c;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 24px;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-            z-index: 999;
-        }
-
-        a.back-to-top:hover {
-            opacity: 1;
         }
 
         /* الاستجابة للأجهزة الصغيرة */
@@ -363,9 +434,17 @@
                 flex-direction: column;
             }
 
-            .btn-share {
+            .btn {
                 width: 100%;
-                text-align: center;
+                justify-content: center;
+            }
+
+            .back-to-top {
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+                bottom: 16px;
+                right: 16px;
             }
         }
     </style>
@@ -381,10 +460,11 @@
     <!-- القائمة العلوية للتنقل -->
     <nav>
         <div>
-            <a href="#nature">🏔️ المواقع الطبيعية</a>
-            <a href="#history">🕌 المواقع التاريخية</a>
-            <a href="#resorts">🏨 المنتجعات والفنادق</a>
-            <a href="#contact">📧 تواصل معنا</a>
+            <a href="#nature"> المواقع الطبيعية</a>
+            <a href="#history"> المواقع التاريخية</a>
+            <a href="#resorts"> المنتجعات والفنادق</a>
+            <a href="#hotels"> فنادق وإقامة</a>
+            <a href="#contact"> تواصل معنا</a>
         </div>
     </nav>
 
@@ -393,7 +473,7 @@
 
         <!-- قسم المواقع الطبيعية -->
         <section id="nature">
-            <h2 class="section-title">🏔️ المواقع الطبيعية والساحرة</h2>
+            <h2 class="section-title"> المواقع الطبيعية والساحرة</h2>
             <div class="grid">
                  
                 <div class="card">
@@ -409,11 +489,14 @@
                             مثالي للرحلات العائلية والتصوير الفوتوغرافي خاصة وقت الغروب.
                         </p>
                         <div class="card-buttons">
-                            <a href="totil.html" class="btn-details">📖 اقرأ المزيد</a>
+                            <!-- أيقونة الزر: 📖 -->
+                            <a href="totil.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
+                            <!-- أيقونة الزر: 📘 -->
                             <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn-share btn-facebook">📘 فيس</a>
+                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
+                            <!-- أيقونة الزر: 🐦 -->
                             <a href="https://twitter.com/intent/tweet?text=جبل%20توتيل%20من%20أيقونات%20كسلا&url=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn-share btn-twitter">🐦 تويتر</a>
+                               target="_blank" class="btn btn-twitter"><span class="icon">🐦</span> تويتر</a>
                         </div>
                     </div>
                 </div>
@@ -430,11 +513,11 @@
                             وفرص للاستكشاف والتنزه. مشهور بين السياح للاستمتاع بجمال الطبيعة والهدوء.
                         </p>
                         <div class="card-buttons">
-                            <a href="drih.html" class="btn-details">📖 اقرأ المزيد</a>
+                            <a href="drih.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
                             <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn-share btn-facebook">📘 فيس</a>
+                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
                             <a href="https://wa.me/?text=اكتشف%20نهر%20القاش%20في%20كسلا%20https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn-share btn-whatsapp">💬 واتس</a>
+                               target="_blank" class="btn btn-whatsapp"><span class="icon">💬</span> واتس</a>
                         </div>
                     </div>
                 </div>
@@ -451,11 +534,11 @@
                             بالجو الريفي الهادئ والطبيعة الخضراء الجميلة. زيارة مثالية في فصل الربيع والصيف.
                         </p>
                         <div class="card-buttons">
-                            <a href="bstan.html" class="btn-details">📖 اقرأ المزيد</a>
+                            <a href="bstan.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
                             <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn-share btn-facebook">📘 فيس</a>
+                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
                             <a href="https://twitter.com/intent/tweet?text=البساتين%20الخضراء%20في%20كسلا&url=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn-share btn-twitter">🐦 تويتر</a>
+                               target="_blank" class="btn btn-twitter"><span class="icon">🐦</span> تويتر</a>
                         </div>
                     </div>
                 </div>
@@ -479,11 +562,11 @@
                             المكان يتمتع بأهمية دينية وتاريخية كبيرة ويعكس التراث الثقافي العريق لمدينة كسلا.
                         </p>
                         <div class="card-buttons">
-                            <a href="drih.html" class="btn-details">📖 اقرأ المزيد</a>
+                            <a href="drih.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
                             <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn-share btn-facebook">📘 فيس</a>
+                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
                             <a href="https://wa.me/?text=زر%20مسجد%20الختمية%20في%20كسلا%20https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn-share btn-whatsapp">💬 واتس</a>
+                               target="_blank" class="btn btn-whatsapp"><span class="icon">💬</span> واتس</a>
                         </div>
                     </div>
                 </div>
@@ -500,11 +583,11 @@
                             والتقاليد المحلية. تجربة ثقافية غنية لا تنسى تأخذك في رحلة عبر التراث والتاريخ.
                         </p>
                         <div class="card-buttons">
-                            <a href="totil.html" class="btn-details">📖 اقرأ المزيد</a>
+                            <a href="drih.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
                             <a href="https://twitter.com/intent/tweet?text=اكتشف%20السوق%20الشعبي%20في%20كسلا&url=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn-share btn-twitter">🐦 تويتر</a>
+                                 target="_blank" class="btn btn-twitter"><span class="icon">🐦</span> تويتر</a>
                             <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn-share btn-facebook">📘 فيس</a>
+                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
                         </div>
                     </div>
                 </div>
@@ -535,9 +618,9 @@
                             <span class="reviewer">- أحمد علي (زائر)</span>
                         </div>
                         <div class="card-buttons">
-                            <a href="bstan.html" class="btn-details">📖 اقرأ المزيد</a>
+                            <a href="bstan.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
                             <a href="https://wa.me/?text=منتجع%20البستان%20السياحي%20في%20كسلا%20https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn-share btn-whatsapp">💬 واتس</a>
+                               target="_blank" class="btn btn-whatsapp"><span class="icon">💬</span> واتس</a>
                         </div>
                     </div>
                 </div>
@@ -561,9 +644,9 @@
                             <span class="reviewer">- منى محمد (زائرة)</span>
                         </div>
                         <div class="card-buttons">
-                            <a href="waha.html" class="btn-details">📖 اقرأ المزيد</a>
+                            <a href="waha.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
                             <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn-share btn-facebook">📘 فيس</a>
+                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
                         </div>
                     </div>
                 </div>
@@ -588,9 +671,102 @@
                         </div>
                         <div class="card-buttons">
                             <a href="https://wa.me/?text=منتجعات%20كسلا%20السياحية%20https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn-share btn-whatsapp">💬 واتس</a>
+                               target="_blank" class="btn btn-whatsapp"><span class="icon">💬</span> واتس</a>
                             <a href="https://twitter.com/intent/tweet?text=منتجعات%20كسلا%20الرائعة&url=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn-share btn-twitter">🐦 تويتر</a>
+                               target="_blank" class="btn btn-twitter"><span class="icon">🐦</span> تويتر</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- قسم الفنادق الجديد -->
+        <section id="hotels">
+            <h2 class="section-title">🛏️ فنادق وأماكن إقامة راقية</h2>
+            <div class="grid">
+
+                <!-- فندق 1 -->
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/hotel1.jpg" alt="فندق النيل">
+                    </div>
+                    <div class="card-content">
+                        <h3>فندق النيل</h3>
+                        <p>
+                            يقع على ضفاف نهر القاش، ويوفر إطلالات ساحرة وخدمات راقية. غرف مكيفة مع إنترنت مجاني، 
+                            مطعم يقدم أشهى المأكولات السودانية والعالمية، وموقف سيارات خاص. مثالي للعائلات ورجال الأعمال.
+                        </p>
+                        <div class="card-buttons">
+                            <a href="hotel1.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
+                            <a href="https://wa.me/?text=فندق%20النيل%20في%20كسلا%20https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn btn-whatsapp"><span class="icon">💬</span> واتس</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- فندق 2 -->
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/hotel2.jpg" alt="فندق التاكا">
+                    </div>
+                    <div class="card-content">
+                        <h3>فندق التاكا</h3>
+                        <p>
+                            يتميز بموقعه القريب من جبل توتيل، ويقدم غرفاً فسيحة بإطلالة جبلية خلابة. يحتوي على مسبح 
+                            خارجي، صالة رياضية، ومركز أعمال. خيار مثالي لمن يبحث عن الهدوء والطبيعة.
+                        </p>
+                        <div class="card-buttons">
+                            <a href="hotel2.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
+                            <a href="https://twitter.com/intent/tweet?text=فندق%20التاكا%20في%20كسلا&url=https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn btn-twitter"><span class="icon">🐦</span> تويتر</a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- فندق 3 -->
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/hotel3.jpg" alt="فندق القاش">
+                    </div>
+                    <div class="card-content">
+                        <h3>فندق القاش</h3>
+                        <p>
+                            فندق عصري في قلب مدينة كسلا، قريب من الأسواق والمطاعم. يوفر غرفاً أنيقة، خدمة الغرف على 
+                            مدار الساعة، وواي فاي عالي السرعة. مناسب للمسافرين الذين يريدون سهولة الوصول إلى جميع 
+                            المعالم السياحية.
+                        </p>
+                        <div class="card-buttons">
+                            <a href="hotel3.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
+                            <a href="https://wa.me/?text=فندق%20القاش%20في%20كسلا%20https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn btn-whatsapp"><span class="icon">💬</span> واتس</a>
+                            <a href="https://twitter.com/intent/tweet?text=فندق%20القاش%20في%20كسلا&url=https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn btn-twitter"><span class="icon">🐦</span> تويتر</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- فندق 4 -->
+                <div class="card">
+                    <div class="card-img">
+                        <img src="images/hotel4.jpg" alt="فندق السافانا">
+                    </div>
+                    <div class="card-content">
+                        <h3>فندق السافانا</h3>
+                        <p>
+                            يتميز بتصميمه الحديث وحديقته الواسعة، ويوفر غرفاً عائلية ومطعماً يقدم مأكولات محلية وعالمية. 
+                            يبعد 5 دقائق عن مطار كسلا، ويوفر خدمة النقل المجاني.
+                        </p>
+                        <div class="card-buttons">
+                            <a href="hotel4.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
+                            <a href="https://twitter.com/intent/tweet?text=فندق%20السافانا%20في%20كسلا&url=https://mahr33928.github.io/kassala-website/" 
+                               target="_blank" class="btn btn-twitter"><span class="icon">🐦</span> تويتر</a>
                         </div>
                     </div>
                 </div>
@@ -624,7 +800,10 @@
                         <textarea id="message" name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
                     </div>
                     
-                    <button type="submit" class="submit-btn">إرسال الرسالة 📤</button>
+                    <button type="submit" class="submit-btn">
+
+                        <span class="icon"></span> إرسال الرسالة
+                    </button>
                 </form>
             </div>
         </section>
@@ -640,7 +819,104 @@
     </footer>
 
     <!-- زر الرجوع للأعلى -->
-    <a href="#" class="back-to-top">⬆️</a>
+    <button class="back-to-top" id="backToTop" aria-label="الرجوع للأعلى">
+        <span class="icon">⬆️</span>
+    </button>
+
+    <!-- ===== جافا سكريبت لتفاعل الأزرار (تأثير الموجة Ripple) ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            // --- 1. تأثير الموجة (Ripple) على جميع الأزرار ---
+            const buttons = document.querySelectorAll('.btn, .submit-btn, .back-to-top');
+            
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    // استثناء الأزرار التي قد يكون لها رابط خارجي (نمنع التداخل مع الفتح)
+                    // ننشئ عنصر الموجة
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ripple');
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    
+                    // نضيفه للزر
+                    this.appendChild(ripple);
+                    
+                    // نزيل العنصر بعد انتهاء الأنيميشن
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // --- 2. زر العودة للأعلى ---
+            const backBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 400) {
+                    backBtn.style.display = 'flex';
+                } else {
+                    backBtn.style.display = 'none';
+                }
+            });
+
+            backBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // --- 3. تمييز الرابط النشط في القائمة ---
+            const navLinks = document.querySelectorAll('nav a');
+            const sections = document.querySelectorAll('section[id]');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                const scrollY = window.scrollY + 100;
+                sections.forEach(section => {
+                    const top = section.offsetTop;
+                    const height = section.offsetHeight;
+                    if (scrollY >= top && scrollY < top + height) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // --- 4. تنبيه عند إرسال النموذج (لأن Formspree placeholder) ---
+            const form = document.getElementById('contactForm');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    const action = form.getAttribute('action');
+                    if (action.includes('YOUR_FORM_ID')) {
+                        e.preventDefault();
+                        alert('⚠️ يرجى تحديث معرف النموذج (Form ID) في خاصية action لتفعيل الإرسال.');
+                    } else {
+                        // رسالة ترحيبية أن الإرسال تم
+                        const btn = form.querySelector('.submit-btn');
+                        const originalText = btn.innerHTML;
+                        btn.innerHTML = '<span class="icon">✅</span> جاري الإرسال...';
+                        btn.disabled = true;
+                        setTimeout(() => {
+                            btn.innerHTML = originalText;
+                            btn.disabled = false;
+                        }, 4000);
+                    }
+                });
+            }
+
+        })();
+    </script>
 
 </body>
 </html>

@@ -1,922 +1,1134 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة كسلا السياحية</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="بوابة كسلا السياحية - اكتشف أجمل المعالم السياحية في كسلا السودان: جبل توتيل، نهر القاش، منتجعات فندقية، وتراث حضاري عريق. معلومات سياحية شاملة وآراء الزوار.">
-    <meta name="keywords" content="كسلا, السودان, السياحة, جبل توتيل, نهر القاش, منتجعات سياحية, سياحة شرق السودان, معالم سياحية">
-    <meta name="author" content="Maher Ibrahim">
-    <meta property="og:title" content="بوابة كسلا السياحية - اكتشف مدينة كسلا">
-    <meta property="og:description" content="موقع سياحي شامل لمدينة كسلا بمعلومات عن المعالم والمنتجعات والتراث">
-    <meta property="og:image" content="images/totil2.png">
-    
-    <style>
-        /* --- تنسيقات CSS الأساسية --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>كسلا - بوابة السياحة السودانية</title>
+  <meta name="description" content="اكتشف جمال مدينة كسلا السودانية - معالم سياحية، ثقافة غنية، وتراث أصيل" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            background-color: white;
-            color: #0e0d0d;
-            line-height: 1.6;
-        }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #FFF8DC;
+      color: #2C1810;
+      line-height: 1.6;
+    }
 
-        /* الهيدر (رأس الصفحة) */
-        header {
-            background-image: url("images/totil2.png");
-            background-size: cover; 
-            background-position: center;
-            text-align: center;
-            padding: 100px 20px;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            color: rgb(255, 255, 255);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        header p {
-            font-size: 1.4rem;
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-        }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
 
-        /* القائمة العلوية للتنقل */
-        nav {
-            background-color: #2c405f;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-        nav > div {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 15px 0;
+    }
 
-        nav a {
-            display: inline-block;
-            color: white;
-            padding: 15px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-            border-bottom: 3px solid transparent;
-        }
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        nav a:hover {
-            background-color: #18bc9c;
-            border-bottom-color: #ffcc00;
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-        /* الحاوية الرئيسية للمحتوى */
-        .container {
-            max-width: 1200px; 
-            margin: 30px auto;
-            padding: 0 20px;
-        }
+    .logo h1 {
+      font-size: 1.8rem;
+      color: #8B4513;
+      font-weight: 700;
+    }
 
-        /* عنوان الأقسام */
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-            color: #242729;
-            font-size: 2rem;
-        }
+    .logo span {
+      font-size: 0.85rem;
+      color: #D2691E;
+    }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: #36ccae;
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
+    .nav {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
 
-        /* نظام الكروت (Cards) لعرض المواقع */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
+    .nav a {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #2C1810;
+      transition: color 0.3s;
+    }
 
-        .card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(36, 29, 29, 0.1);
-            transition: transform 0.3s;
-        }
+    .nav a:hover {
+      color: #DAA520;
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(36, 29, 29, 0.2);
-        }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #2C1810;
+    }
 
-        .card-img {
-            width: 100%;
-            height: 200px;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #221b1b;
-            font-weight: bold;
-            background-image: linear-gradient(45deg, #18bc9c, #2c3e50);
-        }
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-image: url('images/totil3.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
 
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    .hero h2 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-out;
+    }
 
-        .card-content {
-            padding: 20px;
-        }
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeIn 1s ease-out 0.3s both;
+    }
 
-        .card-content h3 {
-            margin-bottom: 10px;
-            color: #2c3e50;
-            font-weight: bold;
-            font-size: 1.3rem;
-        }
+    .btn {
+      display: inline-block;
+      padding: 15px 35px;
+      background: #DAA520;
+      color: #2C1810;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-family: 'Cairo', sans-serif;
+    }
 
-        .card-content p {
-            color: #555;
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
+    .btn:hover {
+      background: #c4941c;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(218, 165, 32, 0.4);
+    }
 
-        .card-buttons {
-            margin-top: 15px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+    /* Section Styles */
+    .section {
+      padding: 80px 0;
+    }
 
-        /* ===== تحسينات الأزرار التفاعلية ===== */
-        .btn {
-            position: relative;
-            overflow: hidden;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 10px 18px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            color: white;
-            letter-spacing: 0.3px;
-        }
+    .section-white {
+      background: white;
+    }
 
-        .btn .icon {
-            font-size: 1.2rem;
-            line-height: 1;
-            transition: transform 0.2s ease;
-        }
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #8B4513;
+      margin-bottom: 50px;
+    }
 
-        /* تأثير hover و active */
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #6B4423;
+      max-width: 700px;
+      margin: -30px auto 50px;
+    }
 
-        .btn:hover .icon {
-            transform: scale(1.1) rotate(-5deg);
-        }
+    /* About Section */
+    .about-text {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #2C1810;
+      line-height: 1.8;
+    }
 
-        .btn:active {
-            transform: scale(0.95);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
 
-        /* زر التفاصيل */
-        .btn-details {
-            background: linear-gradient(135deg, #18bc9c, #14a085);
-            color: white;
-        }
+    .feature-card {
+      background: white;
+      border: 1px solid #E5D4B8;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s;
+    }
 
-        .btn-details:hover {
-            background: linear-gradient(135deg, #1dd2af, #16a085);
-        }
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
 
-        /* أزرار المشاركة */
-        .btn-facebook {
-            background: #1877f2;
-        }
-        .btn-facebook:hover {
-            background: #1464d4;
-        }
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
 
-        .btn-twitter {
-            background: #000000;
-        }
-        .btn-twitter:hover {
-            background: #1a1a1a;
-        }
+    .feature-card h3 {
+      font-size: 1.3rem;
+      color: #8B4513;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
 
-        .btn-whatsapp {
-            background: #25d366;
-        }
-        .btn-whatsapp:hover {
-            background: #1da85c;
-        }
+    .feature-card p {
+      color: #6B4423;
+      font-size: 0.95rem;
+    }
 
-        /* زر الإرسال */
-        .submit-btn {
-            background: linear-gradient(135deg, #18bc9c, #14a085);
-            color: white;
-            padding: 14px 28px;
-            border: none;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 1.05rem;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: 0 4px 12px rgba(24, 188, 156, 0.3);
-        }
+    /* Attractions Grid */
+    .attractions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
 
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(24, 188, 156, 0.4);
-        }
+    .attraction-card {
+      background: white;
+      border: 1px solid #E5D4B8;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
 
-        .submit-btn:active {
-            transform: scale(0.96);
-        }
+    .attraction-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
 
-        .submit-btn .icon {
-            font-size: 1.3rem;
-        }
+    .attraction-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
 
-        /* زر الرجوع للأعلى */
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #18bc9c, #14a085);
-            color: white;
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 24px;
-            box-shadow: 0 4px 16px rgba(24, 188, 156, 0.35);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 999;
-            border: none;
-            cursor: pointer;
-        }
+    .attraction-card:hover img {
+      transform: scale(1.05);
+    }
 
-        .back-to-top:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 8px 30px rgba(24, 188, 156, 0.5);
-        }
+    .attraction-content {
+      padding: 25px;
+    }
 
-        .back-to-top:active {
-            transform: scale(0.9);
-        }
+    .attraction-content h3 {
+      font-size: 1.4rem;
+      color: #8B4513;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
 
-        /* ===== تأثير الموجة (Ripple) عند النقر ===== */
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.45);
-            transform: scale(0);
-            animation: ripple-anim 0.6s ease-out forwards;
-            pointer-events: none;
-        }
+    .attraction-content p {
+      color: #6B4423;
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
 
-        @keyframes ripple-anim {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
+    .attraction-location {
+      color: #D2691E;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
 
-        /* قسم التقييمات والمراجعات */
-        .review-card {
-            background: white;
-            border-right: 5px solid #ffcc00;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
+    /* Culture Section */
+    .tradition-item {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 60px;
+    }
 
-        .stars {
-            color: #ffcc00;
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-        }
+    .tradition-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
 
-        .reviewer {
-            font-size: 0.9rem;
-            color: #160808;
-            margin-top: 5px;
-            display: block;
-            font-weight: bold;
-        }
+    .tradition-item img {
+      width: 50%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
 
-        /* قسم التواصل */
-        #contact {
-            background: #f9f9f9;
-            padding: 40px 20px;
-            margin-top: 60px;
-        }
+    .tradition-text {
+      width: 50%;
+    }
 
-        .form-wrapper {
-            max-width: 500px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+    .tradition-text h3 {
+      font-size: 1.8rem;
+      color: #8B4513;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+    .tradition-text p {
+      font-size: 1.05rem;
+      color: #2C1810;
+      line-height: 1.8;
+    }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #2c3e50;
-        }
+    /* Foods Grid */
+    .foods-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
+    .food-card {
+      background: white;
+      border: 1px solid #E5D4B8;
+      border-radius: 12px;
+      padding: 25px;
+      transition: all 0.3s;
+    }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #18bc9c;
-            box-shadow: 0 0 5px rgba(24, 188, 156, 0.3);
-        }
+    .food-card:hover {
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
 
-        .form-group textarea {
-            resize: vertical;
-            height: 120px;
-        }
+    .food-card h4 {
+      color: #8B4513;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
 
-        /* الفوتر (أسفل الصفحة) */
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
+    .food-card p {
+      color: #6B4423;
+      font-size: 0.95rem;
+    }
 
-        /* الاستجابة للأجهزة الصغيرة */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
+    /* Plan Section */
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
 
-            header p {
-                font-size: 1rem;
-            }
+    .plan-card {
+      background: white;
+      border: 1px solid #E5D4B8;
+      border-radius: 12px;
+      padding: 25px;
+      transition: all 0.3s;
+    }
 
-            .section-title {
-                font-size: 1.5rem;
-            }
+    .plan-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
 
-            nav a {
-                padding: 12px 15px;
-                font-size: 0.9rem;
-            }
+    .plan-card h3 {
+      color: #8B4513;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
 
-            .grid {
-                grid-template-columns: 1fr;
-            }
+    .plan-card .type {
+      color: #D2691E;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
 
-            .card-buttons {
-                flex-direction: column;
-            }
+    .plan-card p {
+      color: #6B4423;
+      margin-bottom: 8px;
+    }
 
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
+    .plan-card .price {
+      color: #8B4513;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
 
-            .back-to-top {
-                width: 44px;
-                height: 44px;
-                font-size: 20px;
-                bottom: 16px;
-                right: 16px;
-            }
-        }
-    </style>
+    /* Tips */
+    .tips-list {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border: 1px solid #E5D4B8;
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .tips-list li {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 15px;
+      font-size: 1.05rem;
+      color: #2C1810;
+    }
+
+    .tips-list li::before {
+      content: '•';
+      color: #DAA520;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+      aspect-ratio: 4/3;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay h4 {
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .gallery-overlay p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .contact-info-card {
+      background: white;
+      border: 1px solid #E5D4B8;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .contact-info-card:hover {
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .contact-info-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-info-card h4 {
+      color: #8B4513;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .contact-info-card p {
+      color: #6B4423;
+    }
+
+    .contact-form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      border: 1px solid #E5D4B8;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .contact-form h3 {
+      text-align: center;
+      color: #8B4513;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #2C1810;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #E5D4B8;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+      direction: rtl;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #DAA520;
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/kassala-sunset.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 80px 0;
+      text-align: center;
+      color: white;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Footer */
+    .footer {
+      background: #2C1810;
+      color: white;
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer h3 {
+      color: #DAA520;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .footer p, .footer li {
+      color: #ccc;
+      line-height: 1.8;
+    }
+
+    .footer ul {
+      list-style: none;
+    }
+
+    .footer ul li a {
+      color: #ccc;
+      transition: color 0.3s;
+    }
+
+    .footer ul li a:hover {
+      color: #DAA520;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #444;
+      padding-top: 20px;
+      text-align: center;
+      color: #888;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(218, 165, 32, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #DAA520;
+      transition: all 0.3s;
+      font-size: 1.2rem;
+    }
+
+    .social-links a:hover {
+      background: #DAA520;
+      color: #2C1810;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .tradition-item,
+      .tradition-item:nth-child(even) {
+        flex-direction: column;
+      }
+
+      .tradition-item img,
+      .tradition-text {
+        width: 100%;
+      }
+
+      .attractions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- الرأس (Header) -->
-    <header>
-        <h1>كسلا الجميلة</h1>
-        <p>اكتشف الطبيعة الساحرة، التاريخ العريق، والمنتجعات السياحية في قلب شرق السودان</p>
-    </header>
-
-    <!-- القائمة العلوية للتنقل -->
-    <nav>
-        <div>
-            <a href="#nature"> المواقع الطبيعية</a>
-            <a href="#history"> المواقع التاريخية</a>
-            <a href="#resorts"> المنتجعات والفنادق</a>
-            <a href="#hotels"> فنادق وإقامة</a>
-            <a href="#contact"> تواصل معنا</a>
-        </div>
-    </nav>
-
-    <!-- المحتوى الرئيسي -->
+  <!-- Header -->
+  <header class="header">
     <div class="container">
-
-        <!-- قسم المواقع الطبيعية -->
-        <section id="nature">
-            <h2 class="section-title"> المواقع الطبيعية والساحرة</h2>
-            <div class="grid">
-                 
-                <div class="card">
-                    <div class="card-img">
-                        <img src="images/totil3.jpg" alt="جبل توتيل">
-                    </div>
-                    <div class="card-content">
-                        <h3>جبل توتيل وجبال التاكا</h3>
-                        <p>
-                            جبل توتيل هو الرمز الأيقوني لمدينة كسلا ويعتبر من أشهر المعالم السياحية في شرق السودان. 
-                            يتميز بقمته الشاهقة التي توفر إطلالات بانورامية خاصة على المدينة والمناطق المحيطة بها. 
-                            يقصده السياح بكثرة للاستمتاع بالطبيعة الجبلية الخلابة والمقاهي التقليدية (الجبنة) المنتشرة على سفحه. 
-                            مثالي للرحلات العائلية والتصوير الفوتوغرافي خاصة وقت الغروب.
-                        </p>
-                        <div class="card-buttons">
-                            <!-- أيقونة الزر: 📖 -->
-                            <a href="totil.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
-                            <!-- أيقونة الزر: 📘 -->
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
-                            <!-- أيقونة الزر: 🐦 -->
-                            <a href="https://twitter.com/intent/tweet?text=جبل%20توتيل%20من%20أيقونات%20كسلا&url=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-twitter"><span class="icon">🐦</span> تويتر</a>
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="card">
-                    <div class="card-img">
-                        <img src="images/gash.jpg" alt="نهر القاش">
-                    </div>
-                    <div class="card-content">
-                        <h3>نهر القاش الموسمي</h3>
-                        <p>
-                            نهر القاش يعتبر من الثروات الطبيعية الفريدة في كسلا، يتدفق موسمياً ليروي أرض كسلا الطيبة 
-                            ويضفي بهجة خاصة على المدينة خلال فترة الفيضان. المنطقة المحيطة به توفر مناظر طبيعية ساحرة 
-                            وفرص للاستكشاف والتنزه. مشهور بين السياح للاستمتاع بجمال الطبيعة والهدوء.
-                        </p>
-                        <div class="card-buttons">
-                            <a href="drih.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
-                            <a href="https://wa.me/?text=اكتشف%20نهر%20القاش%20في%20كسلا%20https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-whatsapp"><span class="icon">💬</span> واتس</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img">
-                        <img src="images/drih.png" alt="الختمية">
-                    </div>
-                    <div class="card-content">
-                        <h3>جنان السواقي والبساتين</h3>
-                        <p>
-                            المساحات الخضراء الممتدة وسط مدينة كسلا تشتهر بإنتاج أجود أنواع المانجو والجريب فروت 
-                            والرمان والعنب. تعتبر هذه البساتين من أهم المصادر الاقتصادية للمدينة وتجذب الزوار للاستمتاع 
-                            بالجو الريفي الهادئ والطبيعة الخضراء الجميلة. زيارة مثالية في فصل الربيع والصيف.
-                        </p>
-                        <div class="card-buttons">
-                            <a href="bstan.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
-                            <a href="https://twitter.com/intent/tweet?text=البساتين%20الخضراء%20في%20كسلا&url=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-twitter"><span class="icon">🐦</span> تويتر</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- قسم المواقع التاريخية والدينية -->
-        <section id="history">
-            <h2 class="section-title">🕌 المواقع التاريخية والدينية</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="card-img">
-                        <img src="images/drih.png" alt="مسجد الختمية">
-                    </div>
-                    <div class="card-content">
-                        <h3>مسجد وضريح الختمية</h3>
-                        <p>
-                            تحفة معمارية تاريخية تقع عند أسفل جبل التاكا، وتعتبر من أهم المعالم الدينية والأثرية في شرق السودان. 
-                            يتميز المسجد بعمارته الإسلامية الأصيلة ويجذب الحجاج والسياح من مختلف أنحاء العالم. 
-                            المكان يتمتع بأهمية دينية وتاريخية كبيرة ويعكس التراث الثقافي العريق لمدينة كسلا.
-                        </p>
-                        <div class="card-buttons">
-                            <a href="drih.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
-                            <a href="https://wa.me/?text=زر%20مسجد%20الختمية%20في%20كسلا%20https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-whatsapp"><span class="icon">💬</span> واتس</a>
-                        </div>
-                    </div>
-                </div>
-               
-                <div class="card">
-                    <div class="card-img">
-                        <img src="images/totil.png" alt="السوق الشعبي">
-                    </div>
-                    <div class="card-content">
-                        <h3>السوق الشعبي وثقافة كسلا</h3>
-                        <p>
-                            المكان الأمثل للتعرف على تراث أهل كسلا الأصيل، حيث يمكنك شراء المصنوعات اليدوية المحلية 
-                            والملابس التقليدية والحرف اليدوية. السوق ينبض بالحياة والحركة ويعكس الثقافة السودانية الأصيلة 
-                            والتقاليد المحلية. تجربة ثقافية غنية لا تنسى تأخذك في رحلة عبر التراث والتاريخ.
-                        </p>
-                        <div class="card-buttons">
-                            <a href="drih.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
-                            <a href="https://twitter.com/intent/tweet?text=اكتشف%20السوق%20الشعبي%20في%20كسلا&url=https://mahr33928.github.io/kassala-website/" 
-                                 target="_blank" class="btn btn-twitter"><span class="icon">🐦</span> تويتر</a>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- قسم المنتجعات السياحية -->
-        <section id="resorts">
-            <h2 class="section-title">🏨 المنتجعات السياحية وأماكن الإقامة</h2>
-            <div class="grid">
-                
-                <div class="card">
-                    <div class="card-img">
-                        <img src="images/bstn4.png" alt="منتجع البستان السياحي">
-                    </div>
-                    <div class="card-content">
-                        <h3>منتجع البستان السياحي</h3>
-                        <p>
-                            يقع في وسط المدينة ويتميز بحدائقه الغناء وجلساته العائلية الهادئة وخدماته الممتازة للزوار. 
-                            المنتجع يوفر أجواء هادئة وآمنة للعائلات مع مرافق حديثة وخدمات فندقية راقية. 
-                            موقعه المميز يجعله خيار مثالي للاستمتاع بوقت ممتع مع العائلة والأصدقاء.
-                        </p>
-                        <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
-                        <h4>آراء وتقييمات الزوار:</h4>
-                        <div class="review-card">
-                            <div class="stars">⭐⭐⭐⭐⭐</div>
-                            <p>"المكان روعة وهادئ جداً، والخدمة ممتازة، ومناسب جداً للعائلات."</p>
-                            <span class="reviewer">- أحمد علي (زائر)</span>
-                        </div>
-                        <div class="card-buttons">
-                            <a href="bstan.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
-                            <a href="https://wa.me/?text=منتجع%20البستان%20السياحي%20في%20كسلا%20https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-whatsapp"><span class="icon">💬</span> واتس</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img">
-                        <img src="images/waha4.png" alt="منتجع الواحة">
-                    </div>
-                    <div class="card-content">
-                        <h3>منتجع الواحة</h3>
-                        <p>
-                            يقدم تجربة ترفيهية متكاملة لرواد المدينة مع إطلالات جميلة وخدمات فندقية مريحة وحديثة. 
-                            المنتجع يوفر جو من الهدوء والراحة مع مرافق ممتازة للاستجمام والاسترخاء. 
-                            خيار رائع للزوار الذين يبحثون عن تجربة فندقية مميزة وخدمات عالية الجودة.
-                        </p>
-                        <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
-                        <h4>آراء وتقييمات الزوار:</h4>
-                        <div class="review-card">
-                            <div class="stars">⭐⭐⭐⭐☆</div>
-                            <p>"إطلالة جميلة جداً والموقع قريب من الخدمات، تجربة تستحق التكرار."</p>
-                            <span class="reviewer">- منى محمد (زائرة)</span>
-                        </div>
-                        <div class="card-buttons">
-                            <a href="waha.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img">
-                        <img src="images/city.png" alt="منتجع وسط المدينة">
-                    </div>
-                    <div class="card-content">
-                        <h3>منتجع وسط المدينة</h3>
-                        <p>
-                            يقدم تجربة ترفيهية متكاملة لرواد المدينة مع إطلالات جميلة وخدمات فندقية مريحة. 
-                            الموقع الاستراتيجي في وسط المدينة يجعله قريب من جميع الخدمات والمعالم السياحية. 
-                            خيار مثالي للزوار الذين يريدون الاستمتاع بكل ما تقدمه المدينة.
-                        </p>
-                        <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
-                        <h4>آراء وتقييمات الزوار:</h4>
-                        <div class="review-card">
-                            <div class="stars">⭐⭐⭐⭐☆</div>
-                            <p>"الموقع ممتاز جداً والموظفون ودودون والأسعار معقولة جداً."</p>
-                            <span class="reviewer">- سارة محمود (زائرة)</span>
-                        </div>
-                        <div class="card-buttons">
-                            <a href="https://wa.me/?text=منتجعات%20كسلا%20السياحية%20https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-whatsapp"><span class="icon">💬</span> واتس</a>
-                            <a href="https://twitter.com/intent/tweet?text=منتجعات%20كسلا%20الرائعة&url=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-twitter"><span class="icon">🐦</span> تويتر</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- قسم الفنادق الجديد -->
-        <section id="hotels">
-            <h2 class="section-title">🛏️ فنادق وأماكن إقامة راقية</h2>
-            <div class="grid">
-
-                <!-- فندق 1 -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="images/hotel1.jpg" alt="فندق النيل">
-                    </div>
-                    <div class="card-content">
-                        <h3>فندق النيل</h3>
-                        <p>
-                            يقع على ضفاف نهر القاش، ويوفر إطلالات ساحرة وخدمات راقية. غرف مكيفة مع إنترنت مجاني، 
-                            مطعم يقدم أشهى المأكولات السودانية والعالمية، وموقف سيارات خاص. مثالي للعائلات ورجال الأعمال.
-                        </p>
-                        <div class="card-buttons">
-                            <a href="hotel1.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
-                            <a href="https://wa.me/?text=فندق%20النيل%20في%20كسلا%20https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-whatsapp"><span class="icon">💬</span> واتس</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- فندق 2 -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="images/hotel2.jpg" alt="فندق التاكا">
-                    </div>
-                    <div class="card-content">
-                        <h3>فندق التاكا</h3>
-                        <p>
-                            يتميز بموقعه القريب من جبل توتيل، ويقدم غرفاً فسيحة بإطلالة جبلية خلابة. يحتوي على مسبح 
-                            خارجي، صالة رياضية، ومركز أعمال. خيار مثالي لمن يبحث عن الهدوء والطبيعة.
-                        </p>
-                        <div class="card-buttons">
-                            <a href="hotel2.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
-                            <a href="https://twitter.com/intent/tweet?text=فندق%20التاكا%20في%20كسلا&url=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-twitter"><span class="icon">🐦</span> تويتر</a>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- فندق 3 -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="images/hotel3.jpg" alt="فندق القاش">
-                    </div>
-                    <div class="card-content">
-                        <h3>فندق القاش</h3>
-                        <p>
-                            فندق عصري في قلب مدينة كسلا، قريب من الأسواق والمطاعم. يوفر غرفاً أنيقة، خدمة الغرف على 
-                            مدار الساعة، وواي فاي عالي السرعة. مناسب للمسافرين الذين يريدون سهولة الوصول إلى جميع 
-                            المعالم السياحية.
-                        </p>
-                        <div class="card-buttons">
-                            <a href="hotel3.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
-                            <a href="https://wa.me/?text=فندق%20القاش%20في%20كسلا%20https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-whatsapp"><span class="icon">💬</span> واتس</a>
-                            <a href="https://twitter.com/intent/tweet?text=فندق%20القاش%20في%20كسلا&url=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-twitter"><span class="icon">🐦</span> تويتر</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- فندق 4 -->
-                <div class="card">
-                    <div class="card-img">
-                        <img src="images/hotel4.jpg" alt="فندق السافانا">
-                    </div>
-                    <div class="card-content">
-                        <h3>فندق السافانا</h3>
-                        <p>
-                            يتميز بتصميمه الحديث وحديقته الواسعة، ويوفر غرفاً عائلية ومطعماً يقدم مأكولات محلية وعالمية. 
-                            يبعد 5 دقائق عن مطار كسلا، ويوفر خدمة النقل المجاني.
-                        </p>
-                        <div class="card-buttons">
-                            <a href="hotel4.html" class="btn btn-details"><span class="icon">📖</span> اقرأ المزيد</a>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-facebook"><span class="icon">📘</span> فيس</a>
-                            <a href="https://twitter.com/intent/tweet?text=فندق%20السافانا%20في%20كسلا&url=https://mahr33928.github.io/kassala-website/" 
-                               target="_blank" class="btn btn-twitter"><span class="icon">🐦</span> تويتر</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- قسم التواصل -->
-        <section id="contact">
-            <h2 class="section-title">📧 تواصل معنا</h2>
-            <div class="form-wrapper">
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                    
-                    <div class="form-group">
-                        <label for="name">اسمك</label>
-                        <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">البريد الإلكتروني</label>
-                        <input type="email" id="email" name="email" placeholder="بريدك الإلكتروني" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">الموضوع</label>
-                        <input type="text" id="subject" name="subject" placeholder="موضوع الرسالة" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">الرسالة</label>
-                        <textarea id="message" name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">
-
-                        <span class="icon"></span> إرسال الرسالة
-                    </button>
-                </form>
-            </div>
-        </section>
-
+      <div class="logo">
+        <h1>كسلا</h1>
+        <span>بوابة السياحة</span>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#attractions">المعالم السياحية</a></li>
+          <li><a href="#culture">الثقافة والتراث</a></li>
+          <li><a href="#plan">خطط زيارتك</a></li>
+          <li><a href="#gallery">معرض الصور</a></li>
+          <li><a href="#contact">اتصل بنا</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" onclick="document.querySelector('.nav').classList.toggle('show')">☰</button>
     </div>
+  </header>
 
-    <!-- الفوتر -->
-    <footer>
-        <p>جميع الحقوق محفوظة © بوابة كسلا السياحية - تصميم وتطوير Maher Ibrahim</p>
-        <p style="font-size: 0.9rem; margin-top: 10px; color: #aaa;">
-            📍 كسلا - شرق السودان | 📞 للتواصل: contact@kassala-tourism.com
-        </p>
-    </footer>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h2>مرحباً بكم في كسلا</h2>
+      <p>جوهرة السودان الشرقية - حيث تلتقي الجبال الشامخة بالثقافة الأصيلة</p>
+      <a href="#attractions" class="btn">اكتشف المزيد</a>
+    </div>
+  </section>
 
-    <!-- زر الرجوع للأعلى -->
-    <button class="back-to-top" id="backToTop" aria-label="الرجوع للأعلى">
-        <span class="icon">⬆️</span>
-    </button>
+  <!-- About Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">عن مدينة كسلا</h2>
+      <p class="about-text">
+        كسلا هي مدينة سودانية تقع في شرق السودان، وتشتهر بجبل توتيل الشهير الذي يعد رمزاً للمدينة. تتميز المدينة بطبيعتها الخلابة وتراثها الثقافي الغني ومناخها المعتدل. تجمع كسلا بين الجمال الطبيعي والتنوع الثقافي، حيث تعيش فيها قبائل مختلفة بتناغم وانسجام، مما يجعلها وجهة سياحية فريدة من نوعها في السودان.
+      </p>
+    </div>
+  </section>
 
-    <!-- ===== جافا سكريبت لتفاعل الأزرار (تأثير الموجة Ripple) ===== -->
-    <script>
-        (function() {
-            'use strict';
+  <!-- Features Section -->
+  <section class="section section-white">
+    <div class="container">
+      <h2 class="section-title">لماذا تزور كسلا؟</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📍</div>
+          <h3>معالم سياحية</h3>
+          <p>اكتشف جبل توتيل الشهير ونهر القاش والمعالم الطبيعية الخلابة</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📷</div>
+          <h3>ثقافة غنية</h3>
+          <p>تعرف على التراث السوداني الأصيل والعادات والتقاليد المحلية</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🍽️</div>
+          <h3>مأكولات شهية</h3>
+          <p>تذوق الأطباق السودانية التقليدية والمأكولات المحلية اللذيذة</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏨</div>
+          <h3>إقامة مريحة</h3>
+          <p>فنادق ومنتجعات توفر أفضل الخدمات والراحة للزوار</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            // --- 1. تأثير الموجة (Ripple) على جميع الأزرار ---
-            const buttons = document.querySelectorAll('.btn, .submit-btn, .back-to-top');
-            
-            buttons.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    // استثناء الأزرار التي قد يكون لها رابط خارجي (نمنع التداخل مع الفتح)
-                    // ننشئ عنصر الموجة
-                    const rect = this.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
-                    const x = e.clientX - rect.left - size / 2;
-                    const y = e.clientY - rect.top - size / 2;
-                    
-                    const ripple = document.createElement('span');
-                    ripple.classList.add('ripple');
-                    ripple.style.width = ripple.style.height = size + 'px';
-                    ripple.style.left = x + 'px';
-                    ripple.style.top = y + 'px';
-                    
-                    // نضيفه للزر
-                    this.appendChild(ripple);
-                    
-                    // نزيل العنصر بعد انتهاء الأنيميشن
-                    setTimeout(() => {
-                        ripple.remove();
-                    }, 600);
-                });
-            });
+  <!-- Attractions Section -->
+  <section id="attractions" class="section">
+    <div class="container">
+      <h2 class="section-title">المعالم السياحية</h2>
+      <p class="section-subtitle">اكتشف جمال كسلا ومعالمها الفريدة</p>
+      <div class="attractions-grid">
+        <div class="attraction-card">
+          <img src="images/totil3.jpg" alt="جبل توتيل">
+          <div class="attraction-content">
+            <h3>جبل توتيل</h3>
+            <p>جبل توتيل هو المعلم الأبرز في مدينة كسلا، ويتميز بقممه الصخرية الفريدة التي تشبه القباب. يعد من أجمل المعالم الطبيعية في السودان.</p>
+            <span class="attraction-location">📍 وسط مدينة كسلا</span>
+          </div>
+        </div>
+        <div class="attraction-card">
+          <img src="/assets/kassala-market.jpg" alt="سوق كسلا">
+          <div class="attraction-content">
+            <h3>سوق كسلا التقليدي</h3>
+            <p>سوق نابض بالحياة يعكس الثقافة المحلية الأصيلة. يمكنك العثور على التوابل السودانية، المنسوجات التقليدية، والحرف اليدوية.</p>
+            <span class="attraction-location">📍 وسط المدينة</span>
+          </div>
+        </div>
+        <div class="attraction-card">
+          <img src="images/gash.jpg" alt="نهر القاش">
+          <div class="attraction-content">
+            <h3>نهر القاش</h3>
+            <p>نهر موسمي يتدفق خلال موسم الأمطار، محولاً المنطقة إلى واحة خضراء خلابة. يوفر مناظر طبيعية ساحرة.</p>
+            <span class="attraction-location">📍 شرق كسلا</span>
+          </div>
+        </div>
+        <div class="attraction-card">
+          <img src="images/city.png" alt="المعالم التراثية">
+          <div class="attraction-content">
+            <h3>المعالم التراثية</h3>
+            <p>تضم كسلا العديد من المباني التاريخية والمعالم التراثية التي تعكس تاريخ المدينة العريق.</p>
+            <span class="attraction-location">📍 أنحاء المدينة</span>
+          </div>
+        </div>
+        <div class="attraction-card">
+          <img src="images/totil4.jpg" alt="غروب الشمس">
+          <div class="attraction-content">
+            <h3>نقاط مشاهدة الغروب</h3>
+            <p>تشتهر كسلا بمناظر الغروب الخلابة، خاصة عند جبل توتيل. السماء الملونة والإضاءة الذهبية تخلق مشهداً لا يُنسى.</p>
+            <span class="attraction-location">📍 جبل توتيل والمرتفعات</span>
+          </div>
+        </div>
+        <div class="attraction-card">
+          <img src="images/waha1.jpg" alt="المراكز الثقافية">
+          <div class="attraction-content">
+            <h3>المراكز الثقافية</h3>
+            <p>مراكز ثقافية تعرض التراث السوداني والفنون المحلية. يمكنك مشاهدة العروض التقليدية والرقصات الفلكلورية.</p>
+            <span class="attraction-location">📍 مختلف أنحاء المدينة</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            // --- 2. زر العودة للأعلى ---
-            const backBtn = document.getElementById('backToTop');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 400) {
-                    backBtn.style.display = 'flex';
-                } else {
-                    backBtn.style.display = 'none';
-                }
-            });
+  <!-- Culture Section -->
+  <section id="culture" class="section section-white">
+    <div class="container">
+      <h2 class="section-title">الثقافة والتراث</h2>
+      <p class="section-subtitle">تعرف على التراث الأصيل لمدينة كسلا</p>
 
-            backBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+      <div class="features-grid" style="margin-bottom: 60px;">
+        <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h3>التنوع الثقافي</h3>
+          <p>تتميز كسلا بتنوع ثقافي غني، حيث تعيش فيها قبائل البجا، الهدندوة، والرشايدة بتناغم.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎵</div>
+          <h3>الموسيقى والرقص</h3>
+          <p>الموسيقى التقليدية جزء أساسي من الثقافة المحلية. الطنبور والطبول تصاحب الرقصات الشعبية.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🍲</div>
+          <h3>المأكولات التقليدية</h3>
+          <p>المطبخ السوداني غني ومتنوع. من الكسرة والملاح إلى الفول والعصيدة.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">❤️</div>
+          <h3>الضيافة والكرم</h3>
+          <p>الضيافة السودانية مشهورة عالمياً. أهل كسلا يرحبون بالزوار بكل حفاوة وكرم.</p>
+        </div>
+      </div>
 
-            // --- 3. تمييز الرابط النشط في القائمة ---
-            const navLinks = document.querySelectorAll('nav a');
-            const sections = document.querySelectorAll('section[id]');
-            
-            window.addEventListener('scroll', function() {
-                let current = '';
-                const scrollY = window.scrollY + 100;
-                sections.forEach(section => {
-                    const top = section.offsetTop;
-                    const height = section.offsetHeight;
-                    if (scrollY >= top && scrollY < top + height) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) {
-                        link.classList.add('active');
-                    }
-                });
-            });
+      <div class="tradition-item">
+        <img src="/assets/kassala-culture.jpg" alt="الأعراس التقليدية">
+        <div class="tradition-text">
+          <h3>الأعراس التقليدية</h3>
+          <p>تمتد احتفالات الأعراس لعدة أيام، مليئة بالموسيقى والرقص والطعام. العروس تزين بالحناء والملابس التقليدية الملونة، بينما يحتفل الجميع في أجواء من الفرح والبهجة.</p>
+        </div>
+      </div>
 
-            // --- 4. تنبيه عند إرسال النموذج (لأن Formspree placeholder) ---
-            const form = document.getElementById('contactForm');
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    const action = form.getAttribute('action');
-                    if (action.includes('YOUR_FORM_ID')) {
-                        e.preventDefault();
-                        alert('⚠️ يرجى تحديث معرف النموذج (Form ID) في خاصية action لتفعيل الإرسال.');
-                    } else {
-                        // رسالة ترحيبية أن الإرسال تم
-                        const btn = form.querySelector('.submit-btn');
-                        const originalText = btn.innerHTML;
-                        btn.innerHTML = '<span class="icon">✅</span> جاري الإرسال...';
-                        btn.disabled = true;
-                        setTimeout(() => {
-                            btn.innerHTML = originalText;
-                            btn.disabled = false;
-                        }, 4000);
-                    }
-                });
-            }
+      <div class="tradition-item">
+        <img src="/assets/kassala-market.jpg" alt="الحرف اليدوية">
+        <div class="tradition-text">
+          <h3>الحرف اليدوية</h3>
+          <p>تشتهر كسلا بالحرف اليدوية التقليدية مثل نسج السلال، صناعة الفخار، والمجوهرات الفضية. هذه الحرف تعكس مهارة الحرفيين وتراثاً يتوارثه الأجيال.</p>
+        </div>
+      </div>
 
-        })();
-    </script>
+      <h2 class="section-title" style="margin-top: 60px;">المأكولات التقليدية</h2>
+      <div style="text-align: center; margin-bottom: 40px;">
+        <img src="/assets/kassala-food.jpg" alt="المأكولات السودانية" style="max-width: 800px; width: 100%; height: 350px; object-fit: cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+      </div>
+      <div class="foods-grid">
+        <div class="food-card">
+          <h4>الكسرة</h4>
+          <p>خبز تقليدي رقيق يُصنع من الذرة، يُقدم مع مختلف أنواع الملاح</p>
+        </div>
+        <div class="food-card">
+          <h4>الفول السوداني</h4>
+          <p>طبق الإفطار الشهير، غني بالبروتين ولذيذ المذاق</p>
+        </div>
+        <div class="food-card">
+          <h4>العصيدة</h4>
+          <p>طبق تقليدي من الدقيق، يُقدم مع الملاح أو العسل</p>
+        </div>
+        <div class="food-card">
+          <h4>الشرموط</h4>
+          <p>سمك مجفف ومملح، من الأطباق المميزة في المنطقة</p>
+        </div>
+        <div class="food-card">
+          <h4>القراصة</h4>
+          <p>خبز محمص مقرمش، يُقدم مع الشاي أو القهوة</p>
+        </div>
+        <div class="food-card">
+          <h4>الحلويات التقليدية</h4>
+          <p>مثل البسبوسة والكنافة، تُقدم في المناسبات الخاصة</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plan Section -->
+  <section id="plan" class="section">
+    <div class="container">
+      <h2 class="section-title">خطط لزيارتك</h2>
+      <p class="section-subtitle">كل ما تحتاجه لرحلة مثالية إلى كسلا</p>
+
+      <h3 style="text-align: center; color: #8B4513; font-size: 1.8rem; margin-bottom: 30px;">أفضل وقت للزيارة</h3>
+      <div class="plan-grid" style="max-width: 700px; margin: 0 auto 50px;">
+        <div class="plan-card">
+          <h3>☀️ الشتاء (نوفمبر - فبراير)</h3>
+          <p>أفضل وقت للزيارة، الطقس معتدل ولطيف</p>
+          <p class="type">درجة الحرارة: 15-25°C</p>
+        </div>
+        <div class="plan-card">
+          <h3>🌧️ الصيف (يونيو - سبتمبر)</h3>
+          <p>موسم الأمطار، المناظر الطبيعية خضراء</p>
+          <p class="type">درجة الحرارة: 25-35°C</p>
+        </div>
+      </div>
+
+      <h3 style="text-align: center; color: #8B4513; font-size: 1.8rem; margin-bottom: 30px;">🏨 أماكن الإقامة</h3>
+      <div class="plan-grid" style="margin-bottom: 50px;">
+        <div class="plan-card">
+          <h3>فندق توتيل</h3>
+          <p class="type">فندق 4 نجوم</p>
+          <p>إطلالة رائعة على جبل توتيل، خدمات ممتازة</p>
+          <p class="price">من 80$ لليلة</p>
+        </div>
+        <div class="plan-card">
+          <h3>فندق القاش</h3>
+          <p class="type">فندق 3 نجوم</p>
+          <p>موقع مركزي، أسعار معقولة، نظيف ومريح</p>
+          <p class="price">من 50$ لليلة</p>
+        </div>
+        <div class="plan-card">
+          <h3>بيوت الضيافة</h3>
+          <p class="type">إقامة تقليدية</p>
+          <p>تجربة محلية أصيلة، ضيافة سودانية</p>
+          <p class="price">من 30$ لليلة</p>
+        </div>
+      </div>
+
+      <h3 style="text-align: center; color: #8B4513; font-size: 1.8rem; margin-bottom: 30px;">💡 نصائح للمسافرين</h3>
+      <ul class="tips-list">
+        <li>احمل معك نقود كافية، حيث قد لا تكون البطاقات الائتمانية متاحة في كل مكان</li>
+        <li>احترم العادات المحلية والملابس المحتشمة مفضلة</li>
+        <li>تعلم بعض العبارات الأساسية بالعربية، سيقدر السكان المحليون ذلك</li>
+        <li>احرص على شرب الماء المعبأ والحفاظ على الترطيب</li>
+        <li>استخدم واقي الشمس وارتدِ قبعة في الأيام المشمسة</li>
+        <li>احجز الفنادق مسبقاً خاصة في موسم الذروة</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>جاهز لاكتشاف كسلا؟</h2>
+      <p>ابدأ رحلتك الآن واستكشف جمال مدينة كسلا وتراثها الغني</p>
+      <a href="#contact" class="btn">تواصل معنا</a>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <h2 class="section-title">معرض الصور</h2>
+      <p class="section-subtitle">استكشف جمال كسلا من خلال مجموعة مختارة من الصور الرائعة</p>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="images/totil.png" alt="جبل توتيل">
+          <div class="gallery-overlay"><div><h4>جبل توتيل</h4><p>المعلم الأبرز في مدينة كسلا</p></div></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/totil4.jpg" alt="غروب الشمس">
+          <div class="gallery-overlay"><div><h4>غروب الشمس</h4><p>مشهد خلاب عند الغروب</p></div></div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/gash.jpg" alt="نهر القاش">
+          <div class="gallery-overlay"><div><h4>نهر القاش</h4><p>واحة خضراء في الصحراء</p></div></div>
+        </div>
+        <div class="gallery-item">
+          <img src="/assets/kassala-market.jpg" alt="السوق التقليدي">
+          <div class="gallery-overlay"><div><h4>السوق التقليدي</h4><p>ألوان وحياة نابضة</p></div></div>
+        </div>
+        <div class="gallery-item">
+          <img src="/assets/kassala-culture.jpg" alt="الثقافة المحلية">
+          <div class="gallery-overlay"><div><h4>الثقافة المحلية</h4><p>تراث أصيل وعادات عريقة</p></div></div>
+        </div>
+        <div class="gallery-item">
+          <img src="/assets/kassala-heritage.jpg" alt="المعالم التراثية">
+          <div class="gallery-overlay"><div><h4>المعالم التراثية</h4><p>عمارة تقليدية جميلة</p></div></div>
+        </div>
+        <div class="gallery-item">
+          <img src="/assets/kassala-food.jpg" alt="المأكولات السودانية">
+          <div class="gallery-overlay"><div><h4>المأكولات السودانية</h4><p>نكهات أصيلة وشهية</p></div></div>
+        </div>
+        <div class="gallery-item">
+          <img src="/assets/kassala-hotel.jpg" alt="الضيافة السودانية">
+          <div class="gallery-overlay"><div><h4>الضيافة السودانية</h4><p>إقامة مريحة وكرم أصيل</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section section-white">
+    <div class="container">
+      <h2 class="section-title">اتصل بنا</h2>
+      <p class="section-subtitle">نحن هنا للإجابة على استفساراتك ومساعدتك في التخطيط لرحلتك</p>
+
+      <div class="contact-grid">
+        <div class="contact-info-card">
+          <div class="icon">📍</div>
+          <h4>العنوان</h4>
+          <p>كسلا، السودان</p>
+        </div>
+        <div class="contact-info-card">
+          <div class="icon">📞</div>
+          <h4>الهاتف</h4>
+          <p dir="ltr">+249 123 456 789</p>
+        </div>
+        <div class="contact-info-card">
+          <div class="icon">✉️</div>
+          <h4>البريد الإلكتروني</h4>
+          <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b2dbdcd4ddf2d9d3c1c1d3ded39fc6ddc7c0dbc1df9cc1d6">[email&#160;protected]</a></p>
+        </div>
+        <div class="contact-info-card">
+          <div class="icon">🕐</div>
+          <h4>ساعات العمل</h4>
+          <p>السبت - الخميس: 8 صباحاً - 5 مساءً</p>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>أرسل لنا رسالة</h3>
+        <form onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح! سنتواصل معك في أقرب وقت ممكن.'); this.reset();">
+          <div class="form-group">
+            <label for="name">الاسم الكامل</label>
+            <input type="text" id="name" name="name" required placeholder="أدخل اسمك الكامل">
+          </div>
+          <div class="form-group">
+            <label for="email">البريد الإلكتروني</label>
+            <input type="email" id="email" name="email" required placeholder="example@email.com">
+          </div>
+          <div class="form-group">
+            <label for="phone">رقم الهاتف</label>
+            <input type="tel" id="phone" name="phone" placeholder="+249 123 456 789">
+          </div>
+          <div class="form-group">
+            <label for="message">الرسالة</label>
+            <textarea id="message" name="message" required placeholder="اكتب رسالتك هنا..."></textarea>
+          </div>
+          <button type="submit" class="btn" style="width: 100%; font-size: 1.1rem;">إرسال الرسالة</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>كسلا</h3>
+          <p>اكتشف جمال مدينة كسلا السودانية، حيث تلتقي الطبيعة الخلابة بالتراث الأصيل والثقافة الغنية. وجهتك المثالية للسياحة والاستكشاف.</p>
+        </div>
+        <div>
+          <h3>روابط سريعة</h3>
+          <ul>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#attractions">المعالم السياحية</a></li>
+            <li><a href="#culture">الثقافة والتراث</a></li>
+            <li><a href="#plan">خطط زيارتك</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>تواصل معنا</h3>
+          <p>📍 كسلا، السودان</p>
+          <p dir="ltr">📞 +249 123 456 789</p>
+          <p>✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7d14131b123d161c0e0e1c111c500912080f140e10530e19">[email&#160;protected]</a></p>
+          <div class="social-links">
+            <a href="#">f</a>
+            <a href="#">ig</a>
+            <a href="#">tw</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 كسلا السياحية. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Mobile menu toggle
+    document.querySelector('.menu-btn').addEventListener('click', function() {
+      const nav = document.querySelector('.nav');
+      if (nav.style.display === 'flex') {
+        nav.style.display = 'none';
+      } else {
+        nav.style.display = 'flex';
+        nav.style.flexDirection = 'column';
+        nav.style.position = 'absolute';
+        nav.style.top = '70px';
+        nav.style.right = '20px';
+        nav.style.background = 'white';
+        nav.style.padding = '20px';
+        nav.style.borderRadius = '12px';
+        nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.15)';
+      }
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', function() {
+        const nav = document.querySelector('.nav');
+        if (window.innerWidth < 768) {
+          nav.style.display = 'none';
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
